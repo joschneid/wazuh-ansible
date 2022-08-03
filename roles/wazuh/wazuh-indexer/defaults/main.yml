@@ -18,6 +18,7 @@ indexer_discovery_nodes:
   - 127.0.0.1
 
 local_certs_path: "{{ playbook_dir }}/indexer/certificates"
+cert_organisation: "OU=Wazuh,O=Wazuh,L=California,C=US"
 
 # Minimum master nodes in cluster, 2 for 3 nodes Wazuh indexer cluster
 minimum_master_nodes: 2
