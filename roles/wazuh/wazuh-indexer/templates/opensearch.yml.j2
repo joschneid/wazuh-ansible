@@ -22,14 +22,6 @@ node.max_local_storage_nodes: "3"
 path.data: /var/lib/wazuh-indexer
 path.logs: /var/log/wazuh-indexer
 
-
-###############################################################################
-#                                                                             #
-#         WARNING: Demo certificates set up in this file.                     #
-#                  Please change on production cluster!                       #
-#                                                                             #
-###############################################################################
-
 plugins.security.ssl.http.pemcert_filepath: /etc/wazuh-indexer/certs/{{ indexer_node_name }}.pem
 plugins.security.ssl.http.pemkey_filepath: /etc/wazuh-indexer/certs/{{ indexer_node_name }}-key.pem
 plugins.security.ssl.http.pemtrustedcas_filepath: /etc/wazuh-indexer/certs/root-ca.pem
