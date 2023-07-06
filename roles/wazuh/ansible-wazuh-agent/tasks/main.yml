@@ -1,15 +1,17 @@
 ---
 
-- include_vars: ../../vars/repo_vars.yml
+- block:
+  - include_vars: ../../vars/repo_vars.yml
 
-- include_vars: ../../vars/repo.yml
-  when: packages_repository == 'production'
+  - include_vars: ../../vars/repo.yml
+    when: packages_repository == 'production'
 
-- include_vars: ../../vars/repo_pre-release.yml
-  when: packages_repository == 'pre-release'
+  - include_vars: ../../vars/repo_pre-release.yml
+    when: packages_repository == 'pre-release'
 
-- include_vars: ../../vars/repo_staging.yml
-  when: packages_repository == 'staging'
+  - include_vars: ../../vars/repo_staging.yml
+    when: packages_repository == 'staging'
+  when: wazuh_repo is not defined
 
 - name: Overlay wazuh_agent_config on top of defaults
   set_fact:
