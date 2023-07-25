@@ -268,12 +268,12 @@
     state: started
   tags: config
 
-- include_tasks: "RMRedHat.yml"
-  when:
-    - ansible_os_family == "RedHat"
-    - not wazuh_agent_sources_installation.enabled
+#- include_tasks: "RMRedHat.yml"
+#  when:
+#    - ansible_os_family == "RedHat"
+#    - not wazuh_agent_sources_installation.enabled
 
-- include_tasks: "RMDebian.yml"
-  when:
-    - ansible_os_family == "Debian"
-    - not wazuh_agent_sources_installation.enabled
+#- include_tasks: "RMDebian.yml"
+#  when:
+#    - ansible_os_family == "Debian"
+#    - not wazuh_agent_sources_installation.enabled
