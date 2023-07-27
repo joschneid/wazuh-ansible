@@ -220,14 +220,14 @@
 #  tags:
 #    - config
 
-- name: Enable ossec-agentlessd
-  command: "{{ wazuh_dir }}/bin/wazuh-control enable agentless"
-  notify: restart wazuh-manager
-  when:
-    - agentlessd_enabled.stdout == '0' or "skipped" in agentlessd_enabled.stdout
-    - agentless_creds is defined
-  tags:
-    - config
+#- name: Enable ossec-agentlessd
+#  command: "{{ wazuh_dir }}/bin/wazuh-control enable agentless"
+#  notify: restart wazuh-manager
+#  when:
+#    - agentlessd_enabled.stdout == '0' or "skipped" in agentlessd_enabled.stdout
+#    - agentless_creds is defined
+#  tags:
+#    - config
 
 - name: Checking alert log output settings
   fail: msg="Please enable json_output or alerts_log options."
