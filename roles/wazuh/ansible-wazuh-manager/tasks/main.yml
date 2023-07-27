@@ -177,48 +177,48 @@
   tags:
     - config
 
-- name: Check if syslog output is enabled
-  set_fact: syslog_output=true
-  when: item.server is not none
-  with_items:
-    - "{{ wazuh_manager_config.syslog_outputs }}"
-  tags:
-    - config
+#- name: Check if syslog output is enabled
+#  set_fact: syslog_output=true
+#  when: item.server is not none
+#  with_items:
+#    - "{{ wazuh_manager_config.syslog_outputs }}"
+#  tags:
+#    - config
 
-- name: Check if client-syslog is enabled
-  shell: |
-    set -o pipefail
-    "grep -c 'ossec-csyslogd' {{ wazuh_dir }}/bin/.process_list | xargs echo"
-  args:
-    removes: "{{ wazuh_dir }}/bin/.process_list"
-    executable: /bin/bash
-  changed_when: false
-  check_mode: false
-  register: csyslog_enabled
-  tags:
-    - config
+#- name: Check if client-syslog is enabled
+#  shell: |
+#    set -o pipefail
+#    "grep -c 'ossec-csyslogd' {{ wazuh_dir }}/bin/.process_list | xargs echo"
+#  args:
+#    removes: "{{ wazuh_dir }}/bin/.process_list"
+#    executable: /bin/bash
+#  changed_when: false
+#  check_mode: false
+#  register: csyslog_enabled
+#  tags:
+#    - config
 
-- name: Enable client-syslog
-  command: "{{ wazuh_dir }}/bin/wazuh-control enable client-syslog"
-  notify: restart wazuh-manager
-  when:
-    - csyslog_enabled.stdout == '0' or "skipped" in csyslog_enabled.stdout
-    - syslog_output is defined and syslog_output
-  tags:
-    - config
+#- name: Enable client-syslog
+#  command: "{{ wazuh_dir }}/bin/wazuh-control enable client-syslog"
+#  notify: restart wazuh-manager
+#  when:
+#    - csyslog_enabled.stdout == '0' or "skipped" in csyslog_enabled.stdout
+#    - syslog_output is defined and syslog_output
+#  tags:
+#    - config
 
-- name: Check if ossec-agentlessd is enabled
-  shell: |
-    set -o pipefail
-    "grep -c 'ossec-agentlessd' {{ wazuh_dir }}/bin/.process_list | xargs echo"
-  args:
-    removes: "{{ wazuh_dir }}/bin/.process_list"
-    executable: /bin/bash
-  changed_when: false
-  check_mode: false
-  register: agentlessd_enabled
-  tags:
-    - config
+#- name: Check if ossec-agentlessd is enabled
+#  shell: |
+#    set -o pipefail
+#    "grep -c 'ossec-agentlessd' {{ wazuh_dir }}/bin/.process_list | xargs echo"
+#  args:
+#    removes: "{{ wazuh_dir }}/bin/.process_list"
+#    executable: /bin/bash
+#  changed_when: false
+#  check_mode: false
+#  register: agentlessd_enabled
+#  tags:
+#    - config
 
 - name: Enable ossec-agentlessd
   command: "{{ wazuh_dir }}/bin/wazuh-control enable agentless"
