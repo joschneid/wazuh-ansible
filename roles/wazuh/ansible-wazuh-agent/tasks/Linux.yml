@@ -262,10 +262,13 @@
     state: started
   tags: config
 
-- include_tasks: "RMRedHat.yml"
-  when:
-    - ansible_os_family == "RedHat"
+- name: remove the repos after installation
+  when: wazuh_remove_repo is true
+  block:
+    - include_tasks: "RMRedHat.yml"
+      when:
+        - ansible_os_family == "RedHat"
 
-- include_tasks: "RMDebian.yml"
-  when:
-    - ansible_os_family == "Debian"
+    - include_tasks: "RMDebian.yml"
+      when:
+        - ansible_os_family == "Debian"
