@@ -29,3 +29,5 @@ indexer_admin_password: changeme
 dashboard_user: kibanaserver
 dashboard_password: changeme
 local_certs_path: "{{ playbook_dir }}/indexer/certificates"
+dashboard_ssl_key: "/etc/wazuh-dashboard/certs/{{ dashboard_node_name }}-key.pem"
+dashboard_ssl_cert: "/etc/wazuh-dashboard/certs/{{ dashboard_node_name }}.pem"
