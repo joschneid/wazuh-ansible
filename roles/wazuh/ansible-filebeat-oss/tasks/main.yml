@@ -1,11 +1,14 @@
 ---
-- include_vars: ../../vars/repo_vars.yml
+- name: Adds default repo settings
+  when: wazuh_repo is not defined
+  block:
+    - include_vars: ../../vars/repo_vars.yml
 
-- include_vars: ../../vars/repo.yml
-  when: packages_repository == 'production'
+    - include_vars: ../../vars/repo.yml
+      when: packages_repository == 'production'
 
-- include_vars: ../../vars/repo_pre-release.yml
-  when: packages_repository == 'pre-release'
+    - include_vars: ../../vars/repo_pre-release.yml
+      when: packages_repository == 'pre-release'
 
 - include_tasks: RedHat.yml
   when: ansible_os_family == 'RedHat'
