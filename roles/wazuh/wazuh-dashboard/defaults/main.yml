@@ -9,6 +9,7 @@ dashboard_server_host: "0.0.0.0"
 dashboard_server_port: "443"
 dashboard_server_name: "dashboard"
 wazuh_version: 5.0.0
+dashboard_version: "{{ wazuh_version }}"
 indexer_cluster_nodes:
   - 127.0.0.1
 
