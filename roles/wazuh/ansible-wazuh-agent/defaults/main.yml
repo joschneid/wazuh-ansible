@@ -181,6 +181,8 @@ wazuh_agent_syscheck:
   skip_proc: 'yes'
   skip_sys: 'yes'
   process_priority: 10
+  file_limit_enabled: 'yes'
+  file_limit_entries: 100000
   max_eps: 100
   sync_enabled: 'yes'
   sync_interval: '5m'
