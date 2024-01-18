@@ -309,6 +309,12 @@
     <nodiff>{{ no_diff }}</nodiff>
     {% endfor %}
 
+    <!-- Maximum number of files to be monitored -->
+    <file_limit>
+      <enabled>{{ file_limit_enabled }}</enabled>
+      <entries>{{ file_limit_entries }}</entries>
+    </file_limit>
+
     <skip_nfs>{{ wazuh_agent_config.syscheck.skip_nfs }}</skip_nfs>
     <skip_dev>{{ wazuh_agent_config.syscheck.skip_dev }}</skip_dev>
     <skip_proc>{{ wazuh_agent_config.syscheck.skip_proc }}</skip_proc>
