@@ -312,7 +312,9 @@
     <!-- Maximum number of files to be monitored -->
     <file_limit>
       <enabled>{{ wazuh_agent_config.syscheck.file_limit_enabled }}</enabled>
+    {% if wazuh_agent_config.syscheck.file_limit_enabled == 'yes' %}
       <entries>{{ wazuh_agent_config.syscheck.file_limit_entries }}</entries>
+    {% endif %}
     </file_limit>
 
     <skip_nfs>{{ wazuh_agent_config.syscheck.skip_nfs }}</skip_nfs>
