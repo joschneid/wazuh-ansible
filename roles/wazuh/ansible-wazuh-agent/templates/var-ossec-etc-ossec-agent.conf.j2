@@ -311,8 +311,8 @@
 
     <!-- Maximum number of files to be monitored -->
     <file_limit>
-      <enabled>{{ file_limit_enabled }}</enabled>
-      <entries>{{ file_limit_entries }}</entries>
+      <enabled>{{ wazuh_agent_config.syscheck.file_limit_enabled }}</enabled>
+      <entries>{{ wazuh_agent_config.syscheck.file_limit_entries }}</entries>
     </file_limit>
 
     <skip_nfs>{{ wazuh_agent_config.syscheck.skip_nfs }}</skip_nfs>
