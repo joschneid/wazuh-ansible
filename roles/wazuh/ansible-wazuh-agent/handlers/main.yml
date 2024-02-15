@@ -1,6 +1,8 @@
 ---
 - name: restart wazuh-agent
-  service: name=wazuh-agent state=restarted enabled=yes
+  debug:
+    msg: "Here would be a handler to restart the wazuh-agent service."
+    # service: name=wazuh-agent state=restarted enabled=yes
 
 - name: Windows | Restart Wazuh Agent
   win_service: name=WazuhSvc start_mode=auto state=restarted
