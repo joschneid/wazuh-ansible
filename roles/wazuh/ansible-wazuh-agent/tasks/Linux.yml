@@ -256,11 +256,10 @@
     - config
 
 - name: Linux | Ensure Wazuh Agent service is started and enabled
-  service:
-    name: wazuh-agent
-    enabled: true
-    state: started
-  tags: config
+  debug:
+    msg: "Triggering wazuh-agent restart handler"
+  changed_when: true
+  notify: restart wazuh-agent
 
 - name: remove the repos after installation
   when: wazuh_remove_repo is true
