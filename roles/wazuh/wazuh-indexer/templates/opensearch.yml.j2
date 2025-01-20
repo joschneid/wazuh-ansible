@@ -33,6 +33,13 @@ plugins.security.ssl.transport.pemtrustedcas_filepath: /etc/wazuh-indexer/certs/
 plugins.security.ssl.http.enabled: true
 plugins.security.ssl.transport.enforce_hostname_verification: false
 plugins.security.ssl.transport.resolve_hostname: false
+{% if (indexer_keystore_path is defined and indexer_keystore_pw is defined) %}
+# Hack because LDAP part needs a keystore
+# See https://github.com/opensearch-project/security/issues/2548
+plugins.security.ssl.transport.truststore_filepath: {{ indexer_keystore_path }}
+plugins.security.ssl.transport.truststore_password: {{ indexer_keystore_pw }}
+# END Hack
+{% endif %}
 
 plugins.security.authcz.admin_dn:
 - "CN=admin,OU=Wazuh,O=Wazuh,L=California,C=US"
