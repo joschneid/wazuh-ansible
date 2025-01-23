@@ -92,6 +92,7 @@
   args:
     executable: /bin/bash
   become: yes
+  no_log: true
 
 - name: Ensure Wazuh dashboard started and enabled
   service:
