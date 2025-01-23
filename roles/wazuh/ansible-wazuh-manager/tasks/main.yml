@@ -52,6 +52,7 @@
   shell: >
     /var/ossec/bin/wazuh-keystore -f indexer -k password -v {{ indexer_security_password }}
   notify: restart wazuh-manager
+  no_log: true
   tags:
     - init
     - config
