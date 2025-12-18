@@ -10,8 +10,8 @@
     - include_vars: ../../vars/repo_pre-release.yml
       when: packages_repository == 'pre-release'
 
-- include_vars: ../../vars/repo_staging.yml
-  when: packages_repository == 'staging'
+    - include_vars: ../../vars/repo_staging.yml
+      when: packages_repository == 'staging'
 
 - include_tasks: RedHat.yml
   when: ansible_os_family == 'RedHat'
